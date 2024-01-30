@@ -19,11 +19,11 @@ package ponomvrenko.practice.codewars.sevenkyi;
 public class ReverseLetter {
     public static String reverseLetter(final String str) {
       StringBuilder builder = new StringBuilder();
-      for (char ch : str.toCharArray()) {
-        if (ch >= 65 && ch <= 122) {
+      for (char ch : str.toLowerCase().toCharArray()) {
+        if (ch >= 97 && ch <= 122) {
           builder.append(ch);
         }
       }
-      return builder.reverse().toString().toLowerCase();
+      return builder.reverse().toString();
     }
 }
