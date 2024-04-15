@@ -32,21 +32,7 @@ public class MajorityElement {
     }
 
     public static int majorityElement(int[] nums) {
-        int threshold = nums.length / 2;
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int n : nums) {
-            if (map.containsKey(n)) {
-                map.put(n, map.get(n) + 1);
-            } else {
-                map.put(n, 1);
-            }
-        }
-        int res = 0;
-        for (Map.Entry<Integer, Integer> n : map.entrySet()) {
-            if (n.getValue() > threshold) {
-                res = n.getKey();
-            }
-        }
-        return res;
+        Arrays.sort(nums);
+        return nums[nums.length / 2];
     }
 }
