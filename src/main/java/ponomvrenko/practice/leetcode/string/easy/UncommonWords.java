@@ -1,9 +1,6 @@
 package ponomvrenko.practice.leetcode.string.easy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * <a href="https://leetcode.com/problems/uncommon-words-from-two-sentences/description/">link</a>
@@ -35,11 +32,9 @@ public class UncommonWords {
     }
 
     public static String[] uncommonFromSentences(String s1, String s2) {
-        String s3 = s1 + " " + s2;
-        ArrayList<String> strings = new ArrayList<>();
+        String[] splittedStrings = (s1 + " " + s2).split(" ");
         Map<String, Integer> map = new HashMap<>();
-        String[] splited = s3.split(" ");
-        for (String s : splited) {
+        for (String s : splittedStrings) {
             if (map.containsKey(s)) {
                 map.put(s, map.get(s) + 1);
             } else {
@@ -47,6 +42,7 @@ public class UncommonWords {
             }
         }
 
+        List<String> strings = new ArrayList<>();
         for (Map.Entry<String, Integer> s : map.entrySet()) {
             if (s.getValue() == 1) {
                 strings.add(s.getKey());
